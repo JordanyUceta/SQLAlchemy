@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<!-- <body>
+    <h1>{{ posts.title }}</h1>
+
+    <p>{{ posts.content }}</p>
+     <p><i> By {{ posts.first_name }}{{ posts.last_name }}
+        on {{ posts.friendly_date }}
+    </i></p>
+
+   
+    <form> 
+        <button formmethod="get" formaction="/users/{{ posts.user_id }}">Cancel</button>
+        <button formmethod="get" formaction="/posts/{{ posts.id }}/edit">Edit</button>
+        <button formmethod="post" formaction="/posts/{{ posts.id}}/delete">Delete</button>
+    </form> -->
+
+    <h1>Blogly Recent Posts</h1>
+
+    {% for post in posts %}
+    <h2>
+      <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+    </h2>
+    <p>{{ post.content }}</p>
+    <p>
+      <small>By {{ post.user.full_name }} on {{ post.created_at }}</small>
+    </p>
+    {% endfor %}
+</body>
+</html>
