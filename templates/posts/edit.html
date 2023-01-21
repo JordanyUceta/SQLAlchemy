@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
-</head>
+{% extends 'base.html' %}
+{% block title %}Edit{% endblock%}
+{% block content %}
 <body>
     <h1>Edit Post</h1>
 
 <form method="POST" action="/posts/{{ post.id }}/edit">
 
-  <div >
-    <label for="title" >Title</label>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
     <div>
-      <input id="title" name="title" value="{{ post.title }}">
+      <input id="title" name="title" value="{{ post.title }}" class="form-control">
     </div>
   </div>
 
-  <div >
-    <label for="content">Post Content</label>
+  <div class="mb-3">
+    <label for="content" class="form-label">Post Content</label>
     <div>
-      <textarea
+      <textarea class="form-control"
                 id="content"
                 name="content">{{ post.content }}</textarea>
     </div>
@@ -29,15 +24,15 @@
 
   <div>
     <div>
-      <a href="/users/{{ post.user_id }}">
+      <a href="/posts/{{ post.id }}">
         Cancel
       </a>
-      <button type="submit">
+      <button type="submit" class="btn btn-dark">
         Edit
       </button>
     </div>
   </div>
 
+  
 </form>
-</body>
-</html>
+{% endblock %}

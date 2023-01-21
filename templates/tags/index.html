@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Index {% endblock%}
+{% block content %}
+</head>
+<body>
+    <h1>Tags</h1>
+
+    <ul class="list-group list-group-numbered">
+      {% for tag in tags %}
+      <li class="list-group-item"><a href="/tags/{{ tag.id }}">{{ tag.name }}</a></li>
+      {% endfor %}
+    </ul>
+    
+    <p><a class="btn btn-primary" href="/tags/new">Add Tag</a></p>
+</body>
+</html>
+{% endblock %}
+
+<!-- LOOK FOR THE TEMPLATE POSTS AND REPLACE THEM ALL WITH THE ONES YOU HAD -->
